@@ -1,0 +1,138 @@
+{
+  "info": {
+    "_postman_id": "12345678-abcd-1234-efgh-1234567890ab",
+    "name": "MS3 - Evaluaciones & Progreso API",
+    "description": "Colección de pruebas para la API de Evaluaciones y Progreso",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Progress",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3003/progress/{{studentUid}}/{{courseRunUid}}",
+          "host": ["localhost"],
+          "port": "3003",
+          "path": ["progress", "{{studentUid}}", "{{courseRunUid}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Upsert Progress",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3003/progress/{{studentUid}}/{{courseRunUid}}",
+          "host": ["localhost"],
+          "port": "3003",
+          "path": ["progress", "{{studentUid}}", "{{courseRunUid}}"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"completedLessons\": [\n        \"lesson1\",\n        \"lesson2\"\n    ],\n    \"score\": {\n        \"current\": 75,\n        \"max\": 100\n    }\n}"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Assignments",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3003/assignments?courseRunUid={{courseRunUid}}",
+          "host": ["localhost"],
+          "port": "3003",
+          "path": ["assignments"],
+          "query": [
+            {
+              "key": "courseRunUid",
+              "value": "{{courseRunUid}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Assignment",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3003/assignments",
+          "host": ["localhost"],
+          "port": "3003",
+          "path": ["assignments"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"lessonUid\": \"lesson1\",\n    \"title\": \"Tarea 1\",\n    \"maxScore\": 100,\n    \"dueAt\": \"2025-12-31T23:59:59Z\",\n    \"rubric\": [\n        {\"criterion\": \"Complejidad\", \"weight\": 50},\n        {\"criterion\": \"Precisión\", \"weight\": 50}\n    ]\n}"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Submission",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:3003/submissions",
+          "host": ["localhost"],
+          "port": "3003",
+          "path": ["submissions"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"assignmentId\": \"assignment1\",\n    \"studentUid\": \"student1\",\n    \"files\": [\n        {\"name\": \"tarea1.pdf\", \"url\": \"https://example.com/tarea1.pdf\"}\n    ],\n    \"submittedAt\": \"2025-01-01T00:00:00Z\"\n}"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Activity Logs",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3003/activity?studentUid={{studentUid}}&courseRunUid={{courseRunUid}}",
+          "host": ["localhost"],
+          "port": "3003",
+          "path": ["activity"],
+          "query": [
+            {
+              "key": "studentUid",
+              "value": "{{studentUid}}"
+            },
+            {
+              "key": "courseRunUid",
+              "value": "{{courseRunUid}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
+
