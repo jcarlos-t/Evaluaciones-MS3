@@ -40,7 +40,7 @@ Obtiene el progreso de un estudiante en un curso específico.
     "updatedAt": "2025-01-02T12:00:00Z"
   }
 }
-
+```
 
 #### Respuesta de Error (404 - No encontrado):
 
@@ -53,6 +53,7 @@ Obtiene el progreso de un estudiante en un curso específico.
   }
 }
 ```
+
 
 ### 2. **PUT /progress/{studentUid}/{courseRunUid}**
 
