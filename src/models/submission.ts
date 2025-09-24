@@ -1,9 +1,10 @@
+// src/models/submission.ts
 import { Schema, model, InferSchemaType, Types } from "mongoose";
 
 const SubmissionSchema = new Schema(
   {
     assignmentId: { type: Schema.Types.ObjectId, required: true, ref: "assignments" },
-    studentUid: { type: String, required: true },
+    studentUid: { type: String, required: true, trim: true },
     files: [{ name: String, url: String }],
     submittedAt: { type: Date, default: Date.now },
     grade: {

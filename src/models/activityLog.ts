@@ -1,10 +1,15 @@
+// src/models/activityLog.ts
 import { Schema, model, InferSchemaType } from "mongoose";
 
 const ActivityLogSchema = new Schema(
   {
-    actorUid: { type: String, required: true },
-    type: { type: String, enum: ["LESSON_VIEW","QUIZ_ATTEMPT","SUBMISSION_CREATE","ENROLLMENT_STATE"], required: true },
-    courseRunUid: { type: String, required: true },
+    actorUid: { type: String, required: true, trim: true },
+    type: {
+      type: String,
+      enum: ["LESSON_VIEW", "QUIZ_ATTEMPT", "SUBMISSION_CREATE", "ENROLLMENT_STATE"],
+      required: true
+    },
+    courseRunUid: { type: String, required: true, trim: true },
     lessonUid: { type: String, default: null },
     meta: { type: Schema.Types.Mixed, default: {} },
     at: { type: Date, default: Date.now }

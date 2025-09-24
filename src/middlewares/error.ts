@@ -1,3 +1,4 @@
+// src/middlewares/error.ts
 import { Request, Response, NextFunction } from "express";
 
 export class ApiError extends Error {

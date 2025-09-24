@@ -1,9 +1,10 @@
+// src/models/progress.ts
 import { Schema, model, InferSchemaType } from "mongoose";
 
 const ProgressSchema = new Schema(
   {
-    studentUid: { type: String, required: true },
-    courseRunUid: { type: String, required: true },
+    studentUid: { type: String, required: true, trim: true },
+    courseRunUid: { type: String, required: true, trim: true },
     completedLessons: { type: [String], default: [] },
     score: {
       current: { type: Number, default: 0, min: 0 },
